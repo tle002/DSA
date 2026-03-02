@@ -25,11 +25,10 @@ class Solution {
                 return -1;
             }
             ans+=j-i;
-            while(j>i){
-                int temp=zerocounts.get(j);
-                zerocounts.set(j,zerocounts.get(j-1));
-                zerocounts.set(j-1,temp);
-                j--;
+            for(int k=j;k>i;k--){
+                int temp=zerocounts.get(k);
+                zerocounts.set(k,zerocounts.get(k-1));
+                zerocounts.set(k-1,temp);
             }
         }
         return ans;
