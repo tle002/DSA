@@ -2,7 +2,7 @@ import java.util.*;
 
 class Solution {
     public int minSwaps(int[][] grid) {
-        List<Integer> zerocounts = new ArrayList<>();
+        int[] zerocounts = new int[grid.length];
         for(int i=0;i<grid.length;i++){
             int count=0;
             for(int j=grid[i].length-1;j>=0;j--){
@@ -13,22 +13,22 @@ class Solution {
                     break;
                 }
             }
-            zerocounts.add(count);
+            zerocounts[i]=count;
         }
         int ans=0;
-        for(int i=0;i<zerocounts.size();i++){
+        for(int i=0;i<zerocounts.length;i++){
             int j=i;
-            while(j<zerocounts.size() && zerocounts.get(j)<(grid.length-1-i)){
+            while(j<zerocounts.length && zerocounts[j]<(grid.length-1-i)){
                 j++;
             }
-            if(j==zerocounts.size()){
+            if(j==zerocounts.length){
                 return -1;
             }
             ans+=j-i;
             for(int k=j;k>i;k--){
-                int temp=zerocounts.get(k);
-                zerocounts.set(k,zerocounts.get(k-1));
-                zerocounts.set(k-1,temp);
+                int temp=zerocounts[k];
+                zerocounts[k]=zerocounts[k-1];
+                zerocounts[k-1]=temp;
             }
         }
         return ans;
