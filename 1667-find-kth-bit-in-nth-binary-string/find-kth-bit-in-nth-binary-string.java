@@ -15,13 +15,10 @@ class Solution {
         StringBuilder st=new StringBuilder(s);
         int i=2;
         while(i<=n){ 
-            StringBuilder inverted=invert(st);
-            StringBuilder reversed=inverted.reverse();
             StringBuilder sb=new StringBuilder();
-            sb.append(st).append("1").append(reversed);
+            sb.append(st).append("1").append(invert(st).reverse());
             st = sb;
             i++;
-            //System.out.println(sb);
         }
         return st.charAt(k-1);
     }
