@@ -6,7 +6,7 @@ class Solution {
         int c2=0;
         int n=s.length();
         for(int i=0;i<n;i++){
-            if(i%2==0){
+            if(one==1){
                 if(s.charAt(i)=='0'){
                     c1++;
                 }
@@ -22,6 +22,7 @@ class Solution {
                 }
             
             }
+            one=one^1;
             //System.out.println(c1+" "+c2);
         }    
         return Math.min(c1,c2);    
