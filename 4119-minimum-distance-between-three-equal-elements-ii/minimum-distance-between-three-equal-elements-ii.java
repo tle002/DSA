@@ -1,6 +1,6 @@
 class Solution {
     public int minimumDistance(int[] nums) {
-        HashMap<Integer, ArrayList<Integer>> map = new HashMap<>();
+        TreeMap<Integer, ArrayList<Integer>> map = new TreeMap<>();
         int minDistance = Integer.MAX_VALUE;
         for(int i=0;i<nums.length;i++){
             if(!map.containsKey(nums[i]))
