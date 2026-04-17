@@ -1,8 +1,11 @@
 class Solution {
     int reverse(int x){
-        String str=Integer.toString(x);
-        str=new StringBuilder(str).reverse().toString();
-        return Integer.parseInt(str);
+        int rev=0;
+        while(x>0){
+            rev=rev*10+x%10;
+            x/=10;
+        }
+        return rev;
     }
     public int minMirrorPairDistance(int[] nums) {
         HashMap<Integer,Integer> map=new HashMap<>();
