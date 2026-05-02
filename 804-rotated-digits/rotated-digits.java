@@ -16,15 +16,15 @@ class Solution {
             int num=i;
             boolean flag=true;
             int res=0;
-            int digi=0;
+            int digi=1;
             while(num>0){
                 int rem=num%10;
                 if(arr[rem]==-1){
                     flag=false;
                     break;
                 }
-                res+=Math.pow(10,digi)*arr[rem];
-                digi++;
+                res+=digi*arr[rem];
+                digi=digi*10;
                 num=num/10;
             }
             if(flag==true && res!=i){
